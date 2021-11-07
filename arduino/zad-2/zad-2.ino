@@ -1,5 +1,4 @@
-//COUNTER
-int licznik = 0;
+//COUNTER - variable initialization moved to the loop --> gives only zeros
 
 void setup()
 {
@@ -8,6 +7,7 @@ void setup()
 
 void loop() 
 {
+  int licznik = 0;
   Serial.println(licznik);
   licznik++;
   delay(100);
