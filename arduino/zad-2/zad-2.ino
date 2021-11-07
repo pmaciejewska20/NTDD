@@ -14,19 +14,24 @@ void setup()
 
 void loop() 
 {
-  if(digitalRead(7) == LOW)
+  if(digitalRead(7) == LOW) //if button is pressed
   {
-    digitalWrite(10, HIGH);
-    digitalWrite(9, LOW);
-    Serial.println("The window is OPEN!!!");
-    delay(5000);
+    digitalWrite(10, HIGH);   //green LED on
+    digitalWrite(9, LOW);   //red LED off
+    Serial.println("The window is OPEN!!!");    //annoucement
+    delay(500);
   }
   
-  else
+  else                      // if button isn't pressed
   {
-    digitalWrite(10, LOW);
-    digitalWrite(9, HIGH);
-    Serial.println("ATTENTION! ALARM! The window is closed");
-    delay(5000);
+    digitalWrite(10, LOW);    //green LED on
+    digitalWrite(9, HIGH);    //red LED off
+    Serial.println("ATTENTION! ALARM! The window is closed");   //annoucement
+    delay(100);
+
+    while(digitalRead(10) == HIGH)
+    {
+      delay(30);
+    }
   }
 }
