@@ -1,17 +1,46 @@
-void setup() {
-  pinMode(8, OUTPUT);   //dioda jako wyjscie
-  pinMode(7, INPUT_PULLUP);   //przycisk jako wejscie
-  digitalWrite(8, LOW);   //wylaczenie diody
+//MIGANIE DIOD(DWOCH) JAK NA SWIATLACH
+
+void setup()
+{
+  pinMode(9, OUTPUT);   //dioda zolta
+  pinMode(10, OUTPUT);    //dioda czerwona
+
+  pinMode(7, INPUT_PULLUP);   //przycisk
   
+  digitalWrite(9, LOW);   //wylaczenie diod
+  digitalWrite(10, LOW);
 }
 
-void loop() {
+void loop() 
+{
 
-  if(digitalRead(7) == LOW) {   //jesli przycisk wcisniety
-    digitalWrite(8, HIGH);    //wlacz diode
+  if(digitalRead(7) == LOW) 
+  {
+    
+    digitalWrite(9, HIGH);
     delay(1000);
+
+    digitalWrite(10, HIGH);
+    delay(1000);
+
+    digitalWrite(9, LOW);
+    delay(2000);
+
+    digitalWrite(10, LOW);
+    delay(3000);
+    
+
+    digitalWrite(10, HIGH);
+    delay(1000);
+
+    digitalWrite(10, LOW);
+
+    digitalWrite(9, HIGH);
+    delay(1000);
+
+    digitalWrite(9, LOW);
+ 
   }
-  else {    //jesli warunek nie zostal spelniony (przycisk nie jest wcisniety)
-    digitalWrite(8, LOW);   //wylacz diode
-  }
+  
+
 }
