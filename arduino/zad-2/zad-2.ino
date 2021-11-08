@@ -1,7 +1,6 @@
-//COUNTER - changing integer variable type on byte type 
-//--> after reaching 255 counter backs to 0
+//BIDIRECTIONAL TRANSMISSION
 
-byte licznik = 0;
+String odebraneDane = ""; //Empty string of read characters
 
 void setup()
 {
@@ -10,7 +9,9 @@ void setup()
 
 void loop() 
 {
-  Serial.println(licznik);
-  licznik++;
-  delay(100);
+  if (Serial.available() > 0)
+  {
+    odebraneDane = Serial.readStringUntil('\n');
+    Serial.println("Hello " + odebraneDane + "!"); //show the message
+  }
 }
