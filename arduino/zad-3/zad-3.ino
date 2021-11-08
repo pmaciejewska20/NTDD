@@ -1,17 +1,17 @@
-//using simple ADC program to create simple voltometer
+//flashing LED with fraquency managed by potentiometer
  
 int readValue = 0; 
-float voltage = 0;
 
 void setup() 
 {
-  Serial.begin(9600);
+  pinMode(2, OUTPUT);
 }
 
 void loop() 
 {
   readValue = analogRead(A5);
-  voltage = readValue * (5.0/1024.0);
-  Serial.println(voltage);
-  delay(200);
+  digitalWrite(2,HIGH);
+  delay(readValue);
+  digitalWrite(2, LOW);
+  delay(readValue);
 }
