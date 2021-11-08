@@ -1,4 +1,7 @@
+//using simple ADC program to create simple voltometer
+ 
 int readValue = 0; 
+float voltage = 0;
 
 void setup() 
 {
@@ -8,6 +11,7 @@ void setup()
 void loop() 
 {
   readValue = analogRead(A5);
-  Serial.println(readValue);
+  voltage = readValue * (5.0/1024.0);
+  Serial.println(voltage);
   delay(200);
 }
