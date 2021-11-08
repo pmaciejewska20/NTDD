@@ -1,4 +1,4 @@
-//LEDs control by UART (Universal Asynchronous Receiver/Transmitter)
+//LEDs control by UART (Universal Asynchronous Receiver/Transmitter) + message added
 
 #define pinLedGreen 10
 #define pinLedRed 9
@@ -27,12 +27,15 @@ void loop()
       delay(1000);
       digitalWrite(pinLedGreen, LOW);
     }
-    
-    if (odebraneDane == "pinLedRed")
+    else if (odebraneDane == "pinLedRed")
     {
       digitalWrite(pinLedRed, HIGH);
       delay(1000);
       digitalWrite(pinLedRed, LOW);
+    }
+     else
+    {
+      Serial.println("Sorry, you've entered wrong color.");
     }
   }
 }
