@@ -1,9 +1,11 @@
-//LEDs control by UART (Universal Asynchronous Receiver/Transmitter) + message added
+//LEDs control by UART (Universal Asynchronous Receiver/Transmitter) + message added + opposite state
 
 #define pinLedGreen 10
 #define pinLedRed 9
 
 String odebraneDane = ""; //Empty string of read characters
+bool onGreen = true;
+bool onRed = true;
 
 void setup()
 {
@@ -25,13 +27,15 @@ void loop()
     {
       digitalWrite(pinLedGreen, HIGH);
       delay(1000);
-      digitalWrite(pinLedGreen, LOW);
+      onGreen = !onGreen;
+      digitalWrite(pinLedGreen, onGreen);
     }
     else if (odebraneDane == "pinLedRed")
     {
       digitalWrite(pinLedRed, HIGH);
       delay(1000);
-      digitalWrite(pinLedRed, LOW);
+      onRed = !onRed;
+      digitalWrite(pinLedRed, onRed);
     }
      else
     {
