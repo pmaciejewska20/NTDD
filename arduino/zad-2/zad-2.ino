@@ -1,4 +1,7 @@
-//COUNTER - variable initialization moved to the loop --> gives only zeros
+//COUNTER - changing integer variable type on byte type 
+//--> after reaching 255 counter backs to 0
+
+byte licznik = 0;
 
 void setup()
 {
@@ -7,7 +10,6 @@ void setup()
 
 void loop() 
 {
-  int licznik = 0;
   Serial.println(licznik);
   licznik++;
   delay(100);
