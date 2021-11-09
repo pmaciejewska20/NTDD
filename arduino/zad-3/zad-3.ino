@@ -1,17 +1,24 @@
-//flashing LED with fraquency managed by potentiometer
+//LED flashing in the dark
  
 int readValue = 0; 
 
 void setup() 
 {
-  pinMode(2, OUTPUT);
+  pinMode(8, OUTPUT);
 }
 
 void loop() 
 {
   readValue = analogRead(A5);
-  digitalWrite(2,HIGH);
-  delay(readValue);
-  digitalWrite(2, LOW);
-  delay(readValue);
+  
+  if (readValue < 100)
+  {
+      digitalWrite(8,HIGH);
+  }
+  
+  else
+  {
+    digitalWrite(8, LOW);
+  }
+
 }
