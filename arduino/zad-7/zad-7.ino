@@ -1,4 +1,4 @@
-//LCD 
+//LCD (on/off)
 #include <LiquidCrystal.h> // adding library
 LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 void setup() 
@@ -8,13 +8,14 @@ void setup()
  lcd.print("Welcome");     //Text display
  lcd.setCursor(0,1);            //cursor setting
  lcd.print("On FORBOT!");     // Text display
-
+ lcd.blink();
 }
 
 void loop() 
 {
-   lcd.cursor();
-   delay(400);
-   lcd.noCursor();
-   delay(400);
+   lcd.display();
+   delay(1000);
+   lcd.noDisplay();
+   delay(1000);
+   
 }
