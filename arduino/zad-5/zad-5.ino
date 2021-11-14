@@ -1,7 +1,7 @@
-//PWM - gradual LED lightening
+//PWM - gradual LED lightening(without 'if')
 #define ledRed 10
 
-int wypelnienie = 0;
+byte wypelnienie = 0;
 int change = 5;
 void setup() 
 {
@@ -11,13 +11,7 @@ void setup()
 void loop() 
 {
   analogWrite(ledRed, wypelnienie);
-  if (wypelnienie < 255)
-  {
-    wypelnienie = wypelnienie + change;
-  }
-  else
-  {
-    wypelnienie = 0;
-  }
-  delay(50);
+  wypelnienie = wypelnienie + change;
+
+  delay(30);
 }
